@@ -20,6 +20,19 @@ public class Turma {
 		alunos.add(aluno);
 	}
 	
+	public void addNota(int cpf) {
+		for(Aluno aluno : alunos) {
+			if(cpf == aluno.getCpf()) {
+				System.out.println("Aluno encontrado");
+				aluno.setNotas(aluno.adicionarNota());
+			}else {
+				System.out.println("terste");
+			}
+		}
+	}
+	
+	
+	
 	//metodo para remover um aluno para a ArrayList
 	public void removerAluno(int cpf) {
 		for(Aluno aluno : alunos) {

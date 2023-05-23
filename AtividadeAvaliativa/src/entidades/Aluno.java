@@ -1,6 +1,7 @@
 package entidades;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * classa Aluno com metodos:
@@ -27,7 +28,8 @@ public class Aluno extends Pessoa {
 	 * @param notas
 	 */
 	
-	
+	Turma turma = new Turma();
+	Scanner entrada = new Scanner(System.in);
 	
 	public Aluno(String nome, Integer cpf, String codigoTurma, Disciplina disciplinas) {
 		super(nome,cpf);
@@ -36,6 +38,12 @@ public class Aluno extends Pessoa {
 		this.disciplinas=disciplinas;
 		notas = new ArrayList<Double>();
 		
+	}
+	public ArrayList<Double> getNotas() {
+		return notas;
+	}
+	public void setNotas(ArrayList<Double> notas) {
+		this.notas = notas;
 	}
 	//contrutor padrao
 	public Aluno(String nome, Integer cpf) {
@@ -61,8 +69,17 @@ public class Aluno extends Pessoa {
 	
 	
 	//metodo para adicionar notas do ArrayList
-	public void adicionarNota(Double nota) {
-		notas.add(nota);
+	public ArrayList<Double> adicionarNota() {
+		ArrayList<Double> notaAserAdd = new ArrayList<>();
+		System.out.println("Quantas notas deseja adicionar? ");
+		int qtdNota = entrada.nextInt();
+		for(int i=0;i<qtdNota;i++) {
+			System.out.println("Nota "+i);
+			double notaAdd = entrada.nextDouble();
+			notaAserAdd.add(notaAdd);
+			System.out.println("Nota adicionada...");
+		}
+		return notaAserAdd;
 	}
 	//metodo remover notas do ArrayList
 	public void removerNota(Double nota) {

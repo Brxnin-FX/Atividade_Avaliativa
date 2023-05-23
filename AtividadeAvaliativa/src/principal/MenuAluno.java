@@ -1,11 +1,13 @@
 package principal;
 
 import entidades.Aluno;
+import entidades.Turma;
 
 public class MenuAluno extends Menu {
 	
 	private Aluno aluno = new Aluno(null, null,null,null);
-
+    Turma turma;
+	
 	@Override
 	public void menu() {
 		do {
@@ -30,12 +32,13 @@ public class MenuAluno extends Menu {
 	
 	
 	private void adicionarNota() {
-		Double nota;
-		System.out.println("Insira a nota a ser adicionada");
-		nota = entrada.nextDouble();
-		System.out.println(nota);
+		double nota;
+		System.out.println("Qaul o cpf do Aluno:");
+		int cpf =entrada.nextInt();
+		turma.listarAlunos();
+		turma.addNota(cpf);
 		
-		aluno.adicionarNota(nota);
+		
 		
 	}
 	
